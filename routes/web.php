@@ -30,3 +30,7 @@ Route::get("ets", "EtsController@index")->name("ets");
 Route::get("tugasphp", "TugasphpController@index")->name("tugasphp");
 
 Route::post('luas', "TugasphpController@luasBalok")->name("luas");
+
+Route::get('greetings',"ViewController@showGreetings") ;
+Route::post('sayhi',"ViewController@sayHi")->name("sayHi") ;
+
