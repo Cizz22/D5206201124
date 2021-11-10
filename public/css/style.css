@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+  }
+
+  .icon > img {
+    width: 20%;
+    max-height: 75px;
+  }
+  .header h1 {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 24px;
+  }
+  .review {
+    font-size: 14px;
+  }
+  .star {
+    color: gold;
+  }
+  .fa-circle {
+    color: gray;
+    opacity: 25%;
+    line-height: 2.3 !important;
+  }
+  p {
+    font-size: 1em;
+  }
+  .content-section h1 {
+    font-size: 1.5rem;
+  }
+
+  .content-section h3 {
+    font-size: 0.875rem;
+    line-height: 20px;
+  }
+  .list .img-an{
+      height: 84px!important;
+  }
+  .tombol span{
+      font-weight: bold;
+  }
