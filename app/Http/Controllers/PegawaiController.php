@@ -65,7 +65,8 @@ class PegawaiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Pegawai::find($id);;
+        return view("pegawai.edit", compact(['data']));
     }
 
     /**
@@ -77,8 +78,18 @@ class PegawaiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pegawai = Pegawai::find($id);
+
+        $pegawai->update([
+            'pegawai_nama' => $request->nama,
+            'pegawai_jabatan' => $request->jabatan,
+            'pegawai_umur' => $request->umur,
+            'pegawai_alamat' => $request->alamat
+        ]);
+
+        return redirect("/pegawai");
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -89,5 +100,11 @@ class PegawaiController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function hapus($id){
+        Pegawai::find($id)->delete();
+
+        return redirect("/pegawai");
     }
 }

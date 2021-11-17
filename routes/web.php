@@ -36,3 +36,5 @@ Route::post('sayhi',"ViewController@sayHi")->name("sayHi") ;
 
 Route::resource('pegawai', "PegawaiController");
 
+Route::get('pegawai/delete/{id}', "PegawaiController@hapus")->name("pegawai.hapus");
+

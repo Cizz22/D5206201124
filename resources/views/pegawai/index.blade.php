@@ -7,7 +7,7 @@
 	<h2>www.malasngoding.com</h2>
 	<h3>Data Pegawai</h3>
 
-	<a href="/pegawai/create"> + Tambah Pegawai Baru</a>
+	<a href="{{route("pegawai.create")}}"> + Tambah Pegawai Baru</a>
 
 	<br/>
 	<br/>
@@ -27,9 +27,9 @@
 			<td>{{ $p->pegawai_umur }}</td>
 			<td>{{ $p->pegawai_alamat }}</td>
 			<td>
-				<a href="#">Edit</a>
+				<a href="{{route("pegawai.edit", $p->id)}}">Edit</a>
 				|
-				<a href="#">Hapus</a>
+				<a href="{{route("pegawai.hapus", $p->id)}}">Hapus</a>
 			</td>
 		</tr>
 		@endforeach

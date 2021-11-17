@@ -14,7 +14,7 @@ class CreatePegawaisTable extends Migration
     public function up()
     {
         Schema::create('pegawais', function (Blueprint $table) {
-            $table->bigIncrements('pegawai_id');
+            $table->bigIncrements('id');
             $table->string("pegawai_nama");
             $table->string("pegawai_jabatan");
             $table->integer("pegawai_umur");
