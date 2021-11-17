@@ -34,3 +34,5 @@ Route::post('luas', "TugasphpController@luasBalok")->name("luas");
 Route::get('greetings',"ViewController@showGreetings") ;
 Route::post('sayhi',"ViewController@sayHi")->name("sayHi") ;
 
+Route::resource('pegawai', "PegawaiController");
+

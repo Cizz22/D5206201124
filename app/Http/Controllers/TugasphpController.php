@@ -11,9 +11,9 @@ class TugasphpController extends Controller
     }
 
     function luasBalok(Request $request){
-        $panjang = $request->input("panjang");
-        $lebar = $request->input("lebar");
-        $tinggi = $request->input("tinggi");
+        $panjang = $request->panjang;
+        $lebar = $request->lebar;
+        $tinggi = $request->tinggi;
 
         $volume = floatval($panjang * $lebar * $tinggi);
 
