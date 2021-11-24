@@ -38,3 +38,6 @@ Route::resource('pegawai', "PegawaiController");
 
 Route::get('pegawai/delete/{id}', "PegawaiController@hapus")->name("pegawai.hapus");
 
+Route::resource('task', "TaskController");
+Route::get('task/delete/{id}', "TaskController@hapus")->name("task.hapus");
+
