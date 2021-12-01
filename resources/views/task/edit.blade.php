@@ -1,4 +1,4 @@
-@extends('app')
+@extends('app', ['title' => 'Edit','header' => 'Edit Tugas'])
 @section('css')
 <style>
     .form{
@@ -39,25 +39,25 @@
                 @method("PUT")
                 <div class="form-group form mb-2">
                     <label for="">Judul Tugas </label>
-                    <input type="text" class="form-control" value="{{$data->task_name}}" name="task_name" required="required">
+                    <input type="text" class="form-control" value="{{$data->NamaTugas}}" name="task_name" required="required">
                 </div>
                 <div class="form-group form mb-2">
                     <label for="">Nama Pegawai</label>
                     <select class="form-control" name="pegawai" id="select" required="required">
                         @foreach ($pegawai as $p)
-                        <option value="{{$p->id}}"  {{$p->id === $data->pegawai_id?"selected":null}}>{{$p->pegawai_nama}} ({{$p->id}})</option>
+                        <option value="{{$p->id}}"  {{$p->id === $data->IDPegawai?"selected":null}}>{{$p->pegawai_nama}} ({{$p->id}})</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="form-group form">
                     <label for="">Tanggal</label>
-                    <input type="date" class="form-control" name="tanggal" value="{{$data->tanggal}}" required="required">
+                    <input type="datetime" class="form-control" name="tanggal" value="{{$data->Tanggal}}" required="required">
                 </div>
                 <div class="form-group form">
                     <label for="">Status</label>
                     <select class="form-control" name="status" required="required">
-                        <option value=0 {{$data->status==="Belum selesai"?"selected":null}}>Belum selesai</option>
-                        <option value=1 {{$data->status==="Selesai"?"selected":null}}>Selesai</option>
+                        <option value=0 {{$data->Status==="Belum selesai"?"selected":null}}>Belum selesai</option>
+                        <option value=1 {{$data->Status==="Selesai"?"selected":null}}>Selesai</option>
                     </select>
                 </div>
                 <div class="form mt-3">

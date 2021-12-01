@@ -13,13 +13,12 @@ class CreateTasksTable extends Migration
      */
     public function up()
     {
-        Schema::create('tasks', function (Blueprint $table) {
+        Schema::create('tugas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('task_name');
-            $table->unsignedInteger('pegawai_id');
-            $table->char('status')->default(0);
-            $table->date('tanggal');
-            $table->timestamps();
+            $table->string('NamaTugas');
+            $table->unsignedInteger('IDPegawai');
+            $table->char('Status')->default(0);
+            $table->datetime('Tanggal');
         });
     }
 

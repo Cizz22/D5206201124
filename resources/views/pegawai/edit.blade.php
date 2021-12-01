@@ -1,4 +1,4 @@
-@extends('app')
+@extends('app', ['title' => 'Edit','header' => 'Edit Pegawai'])
 @section('css')
 <style>
     .form{

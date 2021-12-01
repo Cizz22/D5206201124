@@ -1,4 +1,4 @@
-@extends('app')
+@extends('app',  ['title' => 'Pegawai','header' => 'Tabel Pegawai'])
 
 
 @section('content')

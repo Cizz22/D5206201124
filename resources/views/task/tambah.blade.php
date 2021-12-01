@@ -1,4 +1,4 @@
-@extends('app')
+@extends('app', ['title'=>'Tambah','header' => 'Tambah Tugas'])
 @section('css')
 <style>
     .form{
@@ -9,6 +9,9 @@
     .card{
         width: 65%;
     }
+
+
+
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
 @endsection
@@ -50,7 +53,7 @@
                 </div>
                 <div class="form-group form">
                     <label for="">Tanggal</label>
-                    <input type="date" class="form-control" name="tanggal" required="required">
+                    <input type="datetime-local" class="form-control" name="tanggal" required="required">
                 </div>
                 <div class="form mt-3">
                     <input type="submit" class="form-control btn btn-success" value="Simpan Data">

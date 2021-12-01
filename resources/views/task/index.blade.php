@@ -1,4 +1,4 @@
-@extends('app')
+@extends('app', ['title'=>'Tugas','header' => 'Tabel Tugas'])
 @section('content')
     <button class="btn btn-success">
         <a class="text-decoration-none text-light" href="{{route('task.create')}}">Tambah Tugas Baru</a>
@@ -19,10 +19,10 @@
         <tbody>
             @forelse($data as $p)
 		<tr>
-			<td>{{ $p->task_name }}</td>
+			<td>{{ $p->NamaTugas }}</td>
 			<td>{{ $p->pegawai->pegawai_nama }} ({{ $p->pegawai->id }})</td>
-			<td>{{ $p->tanggal }}</td>
-			<td>{{ $p->status }}</td>
+			<td>{{ $p->Tanggal }}</td>
+			<td>{{ $p->Status }}</td>
 			<td>
                 <div class="d-flex">
                     <button class="btn btn-primary mr-2">

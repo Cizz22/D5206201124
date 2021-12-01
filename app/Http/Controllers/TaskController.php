@@ -41,9 +41,9 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         Task::create([
-            'task_name' => $request->task_name,
-            'pegawai_id' => $request->pegawai,
-            'tanggal' => $request->tanggal
+            'NamaTugas' => $request->task_name,
+            'IDPegawai' => $request->pegawai,
+            'Tanggal' => $request->tanggal
             ]);
 
             return redirect("/task");
@@ -85,10 +85,10 @@ class TaskController extends Controller
         $tugas = Task::find($id);
 
         $tugas->update([
-            'task_name' => $request->task_name,
-            'pegawai_id' => $request->pegawai,
-            'tanggal' => $request->tanggal,
-            'status' => $request->status
+            'NamaTugas' => $request->task_name,
+            'IDPegawai' => $request->pegawai,
+            'Tanggal' => $request->tanggal,
+            'Status' => $request->status
         ]);
 
         return redirect("/task");
@@ -108,6 +108,6 @@ class TaskController extends Controller
     public function hapus($id){
         Task::find($id)->delete();
 
-        return redirect("/task");
+        return redirect("/task")->with(['success', 'Hapus data berhasil;']);
     }
 }

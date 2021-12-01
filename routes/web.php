@@ -41,3 +41,11 @@ Route::get('pegawai/delete/{id}', "PegawaiController@hapus")->name("pegawai.hapu
 Route::resource('task', "TaskController");
 Route::get('task/delete/{id}', "TaskController@hapus")->name("task.hapus");
 
+
+Route::get('/absen','AbsenController@index');
+Route::get('/absen/tambah','AbsenController@tambah');
+Route::post('/absen/store','AbsenController@store');
+Route::get('/absen/edit/{id}','AbsenController@edit');
+Route::post('/absen/update','AbsenController@update');
+Route::get('/absen/hapus/{id}','AbsenController@hapus');
+

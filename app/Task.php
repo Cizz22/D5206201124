@@ -6,14 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
-    protected $fillable = ['task_name', 'tanggal', 'status', 'pegawai_id'];
+    protected $fillable = ['NamaTugas', 'Tanggal', 'Status', 'IDPegawai'];
+    protected $table = 'tugas';
+    public $timestamps = false;
 
     public function pegawai(){
-        return $this->belongsTo(Pegawai::class);
+        return $this->belongsTo(Pegawai::class, 'IDPegawai');
     }
 
     public function getStatusAttribute(){
-        if($this->attributes['status']) return "Selesai";
+        if($this->attributes['Status']) return "Selesai";
         else return "Belum selesai";
     }
 
