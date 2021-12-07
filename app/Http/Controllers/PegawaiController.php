@@ -65,7 +65,7 @@ class PegawaiController extends Controller
      */
     public function edit($id)
     {
-        $data = Pegawai::find($id);;
+        $data = Pegawai::where('pegawai_id', $id)->first();
         return view("pegawai.edit", compact(['data']));
     }
 
@@ -78,7 +78,7 @@ class PegawaiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pegawai = Pegawai::find($id);
+        $pegawai = Pegawai::where('pegawai_id', $id)->first();
 
         $pegawai->update([
             'pegawai_nama' => $request->nama,
@@ -103,7 +103,7 @@ class PegawaiController extends Controller
     }
 
     public function hapus($id){
-        Pegawai::find($id)->delete();
+        Pegawai::where('pegawai_id', $id)->delete();
 
         return redirect("/pegawai");
     }

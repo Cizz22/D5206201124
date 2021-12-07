@@ -1,39 +1,47 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Tutorial Membuat CRUD Pada Laravel - www.malasngoding.com</title>
-</head>
-<body>
+@extends('layout.app', ['title'=>'Abses','header' => 'Tabel Absen'])
+@section('content')
 
-	<h2>www.malasngoding.com</h2>
-	<h3>Data Absen</h3>
-
-	<a href="/absen/tambah"> + Tambah Absen Baru</a>
+        <a class="text-decoration-none text-light" href="absen/tambah"> <button class="btn btn-success">Tambah Absen Baru    </button></a>
 
 	<br/>
 	<br/>
 
-	<table border="1">
-		<tr>
-			<th>ID Pegawai</th>
-			<th>Tanggal</th>
-			<th>Status</th>
-			<th>Opsi</th>
+	<table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID Pegawai</th>
+                <th scope="col">Nama Pegawai</th>
+                <th scope="col">Tanggal</th>
+                <th scope="col">Status</th>
+                <th scope="col">Opsi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse($absen as $a)
+            <tr>
+                <td>{{ $a->pegawai_id}}</td>
+                <td>{{ $a->pegawai_nama}}</td>
+                <td>{{ $a->Tanggal }}</td>
+                <td>{{ $a->Status=="H"?"Hadir":"Absen" }}</td>
+                <td>
+                    <div class="d-flex justify-content-center">
+
+                            <a class="text-decoration-none text-light" href="/absen/edit/{{ $a->ID}}" ><button class="btn btn-primary mr-2"> Edit </button></a>
+                            <a class="text-decoration-none text-light" href="/absen/hapus/{{ $a->ID}}" ><button class="btn btn-danger mr-2"> Hapus </button></a>
+                    </div>
+                </td>
+            </tr>
+            @empty
+            <td colspan="5">
+                <div class="mx-auto">
+                    <p>Data Belum tersedia</p>
+                </div>
+
+            </td>
 		</tr>
-		@foreach($absen as $a)
-		<tr>
-			<td>{{ $a->IDPegawai }}</td>
-			<td>{{ $a->Tanggal }}</td>
-			<td>{{ $a->Status }}</td>
-			<td>
-				<a href="/absen/edit/{{ $a->ID}}">Edit</a>
-				|
-				<a href="/absen/hapus/{{ $a->ID}}">Hapus</a>
-			</td>
-		</tr>
-		@endforeach
+		@endforelse
+        </tbody>
+
 	</table>
 
-
-</body>
-</html>
+@endsection

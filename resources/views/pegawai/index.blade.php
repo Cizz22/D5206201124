@@ -1,10 +1,8 @@
-@extends('app',  ['title' => 'Pegawai','header' => 'Tabel Pegawai'])
+@extends('layout.app',  ['title' => 'Pegawai','header' => 'Tabel Pegawai'])
 
 
 @section('content')
-    <button class="btn btn-success">
-        <a class="text-decoration-none text-light" href="{{route("pegawai.create")}}">Tambah Pegawai Baru</a>
-    </button>
+<a class="text-decoration-none text-light" href="{{route('pegawai.create')}}"> <button class="btn btn-success">Tambah Pegawai Baru    </button></a>
 	<br/>
 	<br/>
 
@@ -27,12 +25,8 @@
 			<td>{{ $p->pegawai_alamat }}</td>
 			<td>
                 <div class="d-flex">
-                    <button class="btn btn-primary mr-2">
-                        <a class="text-decoration-none text-light" href="{{route("pegawai.edit", $p->id)}}">Edit</a>
-                    </button>
-                    <button class="btn btn-danger">
-                        <a class="text-decoration-none text-light" href="{{route("pegawai.hapus", $p->id)}}">Hapus</a>
-                    </button>
+                    <a class="text-decoration-none text-light" href="/absen/edit/{{ $p->pegawai_id}}" ><button class="btn btn-primary mr-2"> Edit </button></a>
+                    <a class="text-decoration-none text-light" href="/absen/hapus/{{ $p->pegawai_id}}" ><button class="btn btn-danger mr-2"> Hapus </button></a>
                 </div>
 
 			</td>

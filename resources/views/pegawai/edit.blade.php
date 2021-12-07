@@ -1,4 +1,4 @@
-@extends('app', ['title' => 'Edit','header' => 'Edit Pegawai'])
+@extends('layout.app', ['title' => 'Edit','header' => 'Edit Pegawai'])
 @section('css')
 <style>
     .form{
@@ -23,7 +23,7 @@
             Tambah Data
         </div>
         <div class="card-body p-4">
-            <form action="/pegawai/{{$data->id}}" method="post">
+            <form action="/pegawai/{{$data->pegawai_id}}" method="post">
                 @csrf
                  @method("PUT")
                 <div class="form-group form">

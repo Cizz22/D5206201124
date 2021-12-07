@@ -11,7 +11,7 @@ class Task extends Model
     public $timestamps = false;
 
     public function pegawai(){
-        return $this->belongsTo(Pegawai::class, 'IDPegawai');
+        return $this->belongsTo(Pegawai::class, 'IDPegawai', 'pegawai_id');
     }
 
     public function getStatusAttribute(){

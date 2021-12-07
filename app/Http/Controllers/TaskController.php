@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Pegawai;
 use App\Task;
 use Illuminate\Http\Request;
-use phpDocumentor\Reflection\DocBlock\Tag;
 
 class TaskController extends Controller
 {
@@ -68,7 +67,7 @@ class TaskController extends Controller
      */
     public function edit($id)
     {
-        $data = Task::find($id);
+        $data = Task::where('ID', $id)->first();
         $pegawai = Pegawai::all();
         return view("task.edit", compact(['data', 'pegawai']));
     }
@@ -82,7 +81,7 @@ class TaskController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tugas = Task::find($id);
+        $tugas = Task::where('ID', $id)->first();
 
         $tugas->update([
             'NamaTugas' => $request->task_name,
@@ -106,7 +105,7 @@ class TaskController extends Controller
     }
 
     public function hapus($id){
-        Task::find($id)->delete();
+        Task::where('ID', $id)->delete();
 
         return redirect("/task")->with(['success', 'Hapus data berhasil;']);
     }

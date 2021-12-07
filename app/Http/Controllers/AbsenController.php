@@ -11,7 +11,9 @@ class AbsenController extends Controller
     public function index()
     {
     	// mengambil data dari table absen
-    	$absen = DB::table('absen')->get();
+    	$absen = DB::table('absen')
+        ->join('pegawai', 'IDPegawai', '=', 'pegawai.pegawai_id')
+        ->get();
 
     	// mengirim data absen ke view index
     	return view('absen.index',['absen' => $absen]);
@@ -22,8 +24,9 @@ class AbsenController extends Controller
 public function tambah()
 {
 
+    $pegawai = DB::table('pegawai')->orderBy('pegawai_nama', 'asc')->get();
 	// memanggil view tambah
-	return view('absen.tambah');
+	return view('absen.tambah', compact(['pegawai']));
 
 }
 
@@ -44,10 +47,11 @@ public function store(Request $request)
 // method untuk edit data absen
 public function edit($id)
 {
+    $pegawai = DB::table('pegawai')->orderBy('pegawai_nama', 'asc')->get();
 	// mengambil data absen berdasarkan id yang dipilih
-	$absen = DB::table('absen')->where('ID',$id)->get();
+	$a = DB::table('absen')->where('ID',$id)->first();
 	// passing data absen yang didapat ke view edit.blade.php
-	return view('absen.edit',['absen' => $absen]);
+	return view('absen.edit',compact(['a', 'pegawai']));
 
 }
 
@@ -71,7 +75,7 @@ public function hapus($id)
 	DB::table('absen')->where('ID',$id)->delete();
 
 	// alihkan halaman ke halaman pegawai
-	return redirect('/pegawai');
+	return redirect('/absen');
 }
 
 }

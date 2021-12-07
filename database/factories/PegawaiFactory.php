@@ -6,6 +6,7 @@ use App\Pegawai;
 use Faker\Generator as Faker;
 
 // $autoIncrement = autoIncrement();
+
 $factory->define(Pegawai::class, function (Faker $faker){
     // $autoIncrement->next();
     return [

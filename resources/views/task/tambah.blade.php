@@ -1,4 +1,4 @@
-@extends('app', ['title'=>'Tambah','header' => 'Tambah Tugas'])
+@extends('layout.app', ['title'=>'Tambah','header' => 'Tambah Tugas'])
 @section('css')
 <style>
     .form{
@@ -47,7 +47,7 @@
                     <label for="">Nama Pegawai</label>
                     <select class="form-control" name="pegawai" id="select" required="required">
                         @foreach ($data as $p)
-                        <option value="{{$p->id}}">{{$p->pegawai_nama}} ({{$p->id}})</option>
+                        <option value="{{$p->pegawai_id}}">{{$p->pegawai_nama}} ({{$p->pegawai_id}})</option>
                         @endforeach
                     </select>
                 </div>

@@ -1,25 +1,92 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Tutorial Membuat CRUD Pada Laravel - www.malasngoding.com</title>
-</head>
-<body>
+@extends('layout.app', ['title'=>'Tambah','header' => 'Tambah Absen'])
+@section('css')
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link
+    href="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css"
+    rel="stylesheet">
 
-	<h2><a href="https://www.malasngoding.com">www.malasngoding.com</a></h2>
-	<h3>Data Absen</h3>
+<style>
+    .form{
+        margin-right: auto;
+        margin-left: auto;
+    }
 
-	<a href="/absen"> Kembali</a>
+    .card{
+        width: 50%;
+    }
+</style>
+@endsection
 
-	<br/>
-	<br/>
+@section('script')
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+<script
+    src="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js">
+</script>
 
-	<form action="/absen/store" method="post">
-		{{ csrf_field() }}
-		ID Pegawai <input type="text" name="idpegawai" pattern="[\d0-9]{0,}" maxlength="11" required="required"> <br/>
-		Tanggal <input type="datetime-local" name="tanggal" required="required"> <br/>
-		Status <input type="text" name="status" maxlength="1" required="required"> <br/>
-		<input type="submit" value="Simpan Data">
-	</form>
+<script type="text/javascript">
+    $(function() {
+        $('#dtpickerdemo').datetimepicker({
+            format: "YYYY-MM-DD hh:mm:ss",
+            "defaultDate": new Date(),
+            locale : "id"
+        });
+    });
+</script>
+@endsection
 
-</body>
-</html>
+@section('content')
+<button class="btn btn-secondary">
+    <a class="text-decoration-none text-light" href="/absen"> Kembali</a>
+</button>
+
+
+<div class="card rounded shadow mx-auto">
+    <div class="card-header">
+        Tambah
+    </div>
+    <div class="card-body p-4">
+        <form action="/absen/store" method="post">
+            {{ csrf_field() }}
+
+            <div class="form-group">
+                <label for="">Pegawai</label>
+                <select class="form-control" name="idpegawai" id="">
+                    @foreach ($pegawai as $p)
+                        <option value="{{$p->pegawai_id}}">{{$p->pegawai_nama}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dtpickerdemo">Tanggal :</label>
+                <div class='input-group date' id='dtpickerdemo'>
+                    <input type='text' class="form-control" name="tanggal" required="required" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">Status</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" value="H" name="status" id="flexRadioDefault2" checked>
+                    <label class="form-check-label"  for="flexRadioDefault2">
+                         <p class="ml-4">Hadir</p>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" value="A" name="status" id="flexRadioDefault2">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        <p class="ml-4">Absen</p>
+                    </label>
+                </div>
+            </div>
+
+
+            </div>
+            <input class="w-50 mx-auto btn btn-primary mb-3" type="submit" value="Simpan Data">
+        </form>
+    </div>
+</div>
+@endsection

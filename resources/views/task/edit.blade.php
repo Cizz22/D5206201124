@@ -1,4 +1,4 @@
-@extends('app', ['title' => 'Edit','header' => 'Edit Tugas'])
+@extends('layout.app', ['title' => 'Edit','header' => 'Edit Tugas'])
 @section('css')
 <style>
     .form{
@@ -34,7 +34,7 @@
             Edit Data
         </div>
         <div class="card-body p-4">
-            <form action="{{route("task.update", $data->id)}}" method="post">
+            <form action="{{route("task.update", $data->ID)}}" method="post">
                 @csrf
                 @method("PUT")
                 <div class="form-group form mb-2">
@@ -45,7 +45,7 @@
                     <label for="">Nama Pegawai</label>
                     <select class="form-control" name="pegawai" id="select" required="required">
                         @foreach ($pegawai as $p)
-                        <option value="{{$p->id}}"  {{$p->id === $data->IDPegawai?"selected":null}}>{{$p->pegawai_nama}} ({{$p->id}})</option>
+                        <option value="{{$p->pegawai_id}}"  {{$p->id === $data->IDPegawai?"selected":null}}>{{$p->pegawai_nama}} ({{$p->pegawai_id}})</option>
                         @endforeach
                     </select>
                 </div>

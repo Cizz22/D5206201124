@@ -1,8 +1,6 @@
-@extends('app', ['title'=>'Tugas','header' => 'Tabel Tugas'])
+@extends('layout.app', ['title'=>'Tugas','header' => 'Tabel Tugas'])
 @section('content')
-    <button class="btn btn-success">
-        <a class="text-decoration-none text-light" href="{{route('task.create')}}">Tambah Tugas Baru</a>
-    </button>
+<a class="text-decoration-none text-light" href="{{route('task.create')}}"> <button class="btn btn-success">Tambah Tugas Baru    </button></a>
 	<br/>
 	<br/>
 
@@ -20,17 +18,13 @@
             @forelse($data as $p)
 		<tr>
 			<td>{{ $p->NamaTugas }}</td>
-			<td>{{ $p->pegawai->pegawai_nama }} ({{ $p->pegawai->id }})</td>
+			<td>{{ $p->pegawai->pegawai_nama }} ({{ $p->pegawai->pegawai_id }})</td>
 			<td>{{ $p->Tanggal }}</td>
 			<td>{{ $p->Status }}</td>
 			<td>
                 <div class="d-flex">
-                    <button class="btn btn-primary mr-2">
-                        <a class="text-decoration-none text-light" href="{{route('task.edit', $p->id)}}" >Edit</a>
-                    </button>
-                    <button class="btn btn-danger">
-                        <a class="text-decoration-none text-light" href="{{route('task.hapus', $p->id)}}" >Hapus</a>
-                    </button>
+                    <a class="text-decoration-none text-light" href="/absen/edit/{{ $p->ID}}" ><button class="btn btn-primary mr-2"> Edit </button></a>
+                    <a class="text-decoration-none text-light" href="/absen/hapus/{{ $p->ID}}" ><button class="btn btn-danger mr-2"> Hapus </button></a>
                 </div>
 			</td>
             @empty
