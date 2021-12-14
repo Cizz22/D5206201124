@@ -6,13 +6,14 @@
     rel="stylesheet">
 
 <style>
-    .form{
+  .form{
         margin-right: auto;
         margin-left: auto;
+        margin-top: -20px
     }
 
     .card{
-        width: 50%;
+        width: 65%;
     }
 </style>
 @endsection

@@ -144,15 +144,6 @@ body {
     margin-left: 300px;
   }
 
-  @media (max-width: 1199px) {
-    #header {
-      left: -300px;
-    }
-    #main {
-      margin-left: 0;
-    }
-  }
-
   /*--------------------------------------------------------------
   # Navigation Menu
   --------------------------------------------------------------*/
@@ -287,21 +278,12 @@ body {
   }
 
   #footer .copyright {
-    text-align: center;
     color: white;
   }
 
   #footer .credits {
     padding-top: 5px;
-    text-align: center;
     font-size: 13px;
     color: #eaebf0;
   }
 
-  @media (max-width: 1199px) {
-    #footer {
-      position: static;
-      width: auto;
-      padding-right: 20px 15px;
-    }
-  }

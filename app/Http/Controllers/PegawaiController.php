@@ -14,7 +14,7 @@ class PegawaiController extends Controller
      */
     public function index()
     {
-        $data = Pegawai::all();
+        $data = Pegawai::paginate(7);
         return view("pegawai.index", compact(['data']));
     }
 
@@ -46,17 +46,14 @@ class PegawaiController extends Controller
         return redirect("/pegawai");
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function cari(Request $request)
     {
-        //
-    }
+        $pegawai = Pegawai::where('pegawai_nama','like','%'.$request->cari.'%')
+        ->paginate();
 
+        return view('pegawai.index', ['data' => $pegawai]);
+
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -78,9 +75,7 @@ class PegawaiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pegawai = Pegawai::where('pegawai_id', $id)->first();
-
-        $pegawai->update([
+        $pegawai = Pegawai::where('pegawai_id', $id)->update([
             'pegawai_nama' => $request->nama,
             'pegawai_jabatan' => $request->jabatan,
             'pegawai_umur' => $request->umur,
@@ -89,7 +84,22 @@ class PegawaiController extends Controller
 
         return redirect("/pegawai");
     }
+    public function hapus($id){
+        Pegawai::where('pegawai_id', $id)->delete();
 
+        return redirect("/pegawai");
+    }
+
+     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -100,11 +110,5 @@ class PegawaiController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function hapus($id){
-        Pegawai::where('pegawai_id', $id)->delete();
-
-        return redirect("/pegawai");
     }
 }

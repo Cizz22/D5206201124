@@ -34,8 +34,7 @@
           <li><a href="/pegawai" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Pegawai</span></a></li>
           <li><a href="/absen" class="nav-link scrollto"><i class="bx bx-file-blank"></i>  <span>Absen</span></a></li>
           <li><a href="/task" class="nav-link scrollto"><i class='bx bx-money-withdraw'></i><span>Tugas</span></a></li>
-          <li><a href="#" class="nav-link scrollto"><i class='bx bx-calendar-week'></i><span>Minggu Depan</span></a></li>
-          <li><a href="#" class="nav-link scrollto"><i class='bx bx-expand-horizontal'></i><span>Praktikum</span></a></li>
+          <li><a href="/snack" class="nav-link scrollto"><i class='bx bx-expand-horizontal'></i><span>Praktikum</span></a></li>
         </ul>
       </nav><!-- .nav-menu -->
     </div>
@@ -47,7 +46,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-sm-10 ">
-            <h3 style="color: rgba(75, 85, 99, 1)" class="my-4">Selamat Datang di <b>{{$header}}</b> </h3>
+            <h3 style="color: rgba(75, 85, 99, 1)" class="my-4"><b>{{$header}}</b> </h3>
              @yield('content')
         </div>
     </div>

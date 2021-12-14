@@ -15,8 +15,9 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $data = Task::all();
-
+        $data = Task::join('pegawai', 'IDPegawai', '=', 'pegawai.pegawai_id')
+        ->select('tugas.*', 'pegawai.pegawai_nama')
+        ->paginate(7);
         return view('task.index', compact(['data']));
     }
 
@@ -81,9 +82,7 @@ class TaskController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tugas = Task::where('ID', $id)->first();
-
-        $tugas->update([
+        Task::where('ID', $id)->update([
             'NamaTugas' => $request->task_name,
             'IDPegawai' => $request->pegawai,
             'Tanggal' => $request->tanggal,
@@ -108,5 +107,18 @@ class TaskController extends Controller
         Task::where('ID', $id)->delete();
 
         return redirect("/task")->with(['success', 'Hapus data berhasil;']);
+    }
+
+
+    public function cari(Request $request)
+    {
+        $data = Task::join('pegawai', 'IDPegawai', '=', 'pegawai.pegawai_id')
+        ->select('tugas.*', 'pegawai.pegawai_nama')
+        ->where('NamaTugas','like','%'.$request->cari.'%')
+        ->orWhere('pegawai_nama', 'like', '%'.$request->cari.'%')
+        ->paginate();
+
+        return view('task.index', ['data' => $data]);
+
     }
 }
