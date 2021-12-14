@@ -33,6 +33,7 @@
                 <div class="d-flex" style="gap: 10px">
                     <a class="text-decoration-none text-light" href="/task/{{ $p->ID}}/edit" ><button class="btn btn-primary mr-2"> Edit </button></a>
                     <a class="text-decoration-none text-light" href="/task/delete/{{ $p->ID}}" ><button class="btn btn-danger mr-2"> Hapus </button></a>
+                    <a class="text-decoration-none text-light" href="/task/{{ $p->ID}}" ><button class="btn btn-secondary mr-2"> Detail </button></a>
                 </div>
 			</td>
             @empty

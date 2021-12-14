@@ -32,6 +32,7 @@
 
                             <a class="text-decoration-none text-light" href="/snack/edit/{{ $a->kodesnack}}" ><button class="btn btn-primary mr-2"> Edit </button></a>
                             <a class="text-decoration-none text-light" href="/snack/hapus/{{ $a->kodesnack}}" ><button class="btn btn-danger mr-2"> Hapus </button></a>
+                            <a class="text-decoration-none text-light" href="/snack/{{ $a->kodesnack}}" ><button class="btn btn-secondary mr-2"> Detail </button></a>
                     </div>
                 </td>
             </tr>

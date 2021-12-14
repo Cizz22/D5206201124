@@ -89,7 +89,15 @@ public function cari(Request $request)
     ->paginate();
 
     return view('absen.index', compact(['absen']));
-
 }
+
+    public function show($id){
+        $absen = DB::table('absen')
+        ->where('ID',  $id)
+        ->join('pegawai','IDPegawai', '=','pegawai.pegawai_id')
+        ->select('absen.*','pegawai.pegawai_nama')
+        ->first();
+        return view('absen.show', compact(['absen']));
+    }
 
 }

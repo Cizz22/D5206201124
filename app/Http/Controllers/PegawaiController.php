@@ -98,7 +98,8 @@ class PegawaiController extends Controller
      */
     public function show($id)
     {
-        //
+        $pegawai = Pegawai::where('pegawai_id',  $id)->first();
+        return view('pegawai.show', compact(['pegawai']));
     }
 
     /**

@@ -34,6 +34,7 @@
                 <div class="d-flex" style="gap: 10px">
                     <a class="text-decoration-none text-light" href="/pegawai/{{ $p->pegawai_id}}/edit" ><button class="btn btn-primary mr-2"> Edit </button></a>
                     <a class="text-decoration-none text-light" href="{{route('pegawai.hapus', $p->pegawai_id)}}" ><button class="btn btn-danger mr-2"> Hapus </button></a>
+                    <a class="text-decoration-none text-light" href="{{route('pegawai.show', $p->pegawai_id)}}" ><button class="btn btn-secondary mr-2"> Detail </button></a>
                 </div>
 
 			</td>

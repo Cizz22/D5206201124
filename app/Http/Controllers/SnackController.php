@@ -84,5 +84,9 @@ public function cari(Request $request)
     return view('snack.index', compact(['snack']));
 
 }
+    public function show($id){
+        $snack= DB::table('snack')->where('kodesnack',  $id)->first();
+        return view('snack.show', compact(['snack']));
+    }
 
 }

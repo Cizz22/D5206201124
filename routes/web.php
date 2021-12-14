@@ -50,6 +50,7 @@ Route::get('/absen/edit/{id}','AbsenController@edit');
 Route::post('/absen/update','AbsenController@update');
 Route::get('/absen/hapus/{id}','AbsenController@hapus');
 Route::post('absen/search', 'AbsenController@cari')->name('absen.search');
+Route::get('/absen/show/{id}','AbsenController@show');
 
 //Route snack
 Route::get('/snack','SnackController@index');
@@ -59,5 +60,6 @@ Route::get('/snack/edit/{id}','SnackController@edit');
 Route::post('/snack/update','SnackController@update');
 Route::get('/snack/hapus/{id}','SnackController@hapus');
 Route::post('snack/search', 'SnackController@cari')->name('snack.search');
+Route::get('/snack/{id}','SnackController@show');
 
 

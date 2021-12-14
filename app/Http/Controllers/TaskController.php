@@ -57,7 +57,11 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        //
+        $tugas = Task::where('ID',  $id)
+        ->join('pegawai','IDPegawai', '=','pegawai.pegawai_id')
+        ->select('tugas.*','pegawai.pegawai_nama')
+        ->first();
+        return view('task.show', compact(['tugas']));
     }
 
     /**

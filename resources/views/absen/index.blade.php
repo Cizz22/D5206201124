@@ -32,6 +32,7 @@
 
                             <a class="text-decoration-none text-light" href="/absen/edit/{{ $a->ID}}" ><button class="btn btn-primary mr-2"> Edit </button></a>
                             <a class="text-decoration-none text-light" href="/absen/hapus/{{ $a->ID}}" ><button class="btn btn-danger mr-2"> Hapus </button></a>
+                            <a class="text-decoration-none text-light" href="/absen/show/{{ $a->ID}}" ><button class="btn btn-secondary mr-2"> Detail </button></a>
                     </div>
                 </td>
             </tr>
