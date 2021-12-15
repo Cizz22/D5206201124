@@ -35,6 +35,7 @@
           <li><a href="/absen" class="nav-link scrollto"><i class="bx bx-file-blank"></i>  <span>Absen</span></a></li>
           <li><a href="/task" class="nav-link scrollto"><i class='bx bx-money-withdraw'></i><span>Tugas</span></a></li>
           <li><a href="/snack" class="nav-link scrollto"><i class='bx bx-expand-horizontal'></i><span>Praktikum</span></a></li>
+          <li><a href="/eas" class="nav-link scrollto"><i class='bx bx-expand-horizontal'></i><span>EAS</span></a></li>
         </ul>
       </nav><!-- .nav-menu -->
     </div>

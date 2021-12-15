@@ -94,8 +94,8 @@
                     <a href="{{route("praktikum2")}}" >Praktikum 2</a>
                     <a href="{{route("ets")}}" >ETS</a>
                     <a href="{{route("tugasphp")}}" >Tugas PHP</a>
-                    <a href="{{route("pegawai.index")}}" >CRUD Pegawai</a>
-                    <a href="{{route("task.index")}}" >CRUD Tugas</a>
+                    <a href="{{route("pegawai.index")}}" >Dashboard</a>
+                    <a href="/eas" >EAS</a>
                 </div>
             </div>
         </div>

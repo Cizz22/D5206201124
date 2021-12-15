@@ -62,4 +62,10 @@ Route::get('/snack/hapus/{id}','SnackController@hapus');
 Route::post('snack/search', 'SnackController@cari')->name('snack.search');
 Route::get('/snack/{id}','SnackController@show');
 
+//Route EAS (Keranjang Belanja)
+Route::get('/eas', 'EASController@index');
+Route::get('/eas/tambah','EASController@tambah');
+Route::get('/eas/hapus/{id}','EASController@hapus');
+Route::post('/eas', 'EASController@store');
+
 
