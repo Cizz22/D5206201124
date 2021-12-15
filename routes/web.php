@@ -67,5 +67,7 @@ Route::get('/eas', 'EASController@index');
 Route::get('/eas/tambah','EASController@tambah');
 Route::get('/eas/hapus/{id}','EASController@hapus');
 Route::post('/eas', 'EASController@store');
+Route::post('/eas/update','EASController@update');
+Route::get('/eas/edit/{id}','EASController@edit');
 
 

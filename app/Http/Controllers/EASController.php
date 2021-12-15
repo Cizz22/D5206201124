@@ -51,5 +51,26 @@ public function hapus($id)
 	return redirect('/eas');
 }
 
+// method untuk edit data absen
+public function edit($id)
+{
+	// mengambil data absen berdasarkan id yang dipilih
+	$belanja = DB::table('keranjangbelanja')->where('ID',$id)->first();
+	// passing data absen yang didapat ke view edit.blade.php
+	return view('eas.edit',compact(['belanja']));
+
+}
+
+// update data pegawai
+public function update(Request $request)
+{
+	// update data absen
+	DB::table('keranjangbelanja')->where('ID',$request->id)->update([
+		'Jumlah' => $request->jumlah,
+	]);
+	// alihkan halaman ke halaman awal
+	return redirect('/eas');
+}
+
 
 }
