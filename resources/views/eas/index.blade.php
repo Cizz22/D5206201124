@@ -26,7 +26,7 @@
             <td>{{ 'Rp. ' . number_format(($p->Jumlah* $p->Harga), '0', '', '.') }}</td>
 			<td>
                 <div class="d-flex" style="gap: 10px">
-                    <a class="text-decoration-none text-light" href="/eas/hapus{{$p->ID}}" ><button class="btn btn-danger mr-2">Batal</button></a>
+                    <a class="text-decoration-none text-light" href="/eas/hapus/{{$p->ID}}" ><button class="btn btn-danger mr-2">Batal</button></a>
                 </div>
 
 			</td>
